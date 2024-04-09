@@ -1,5 +1,6 @@
+DDL_QUERY = '''
 -- Crear tabla "categoria"
-CREATE TABLE categoria (
+CREATE TABLE IF NOT EXISTS categoria (
   idcategoria SERIAL PRIMARY KEY,
   nombre VARCHAR(50),
   descripcion VARCHAR(255),
@@ -7,7 +8,7 @@ CREATE TABLE categoria (
 );
 
 -- Crear tabla "articulo"
-CREATE TABLE articulo (
+CREATE TABLE IF NOT EXISTS articulo (
   idarticulo SERIAL PRIMARY KEY,
   idcategoria INTEGER REFERENCES categoria(idcategoria),
   codigo VARCHAR(50),
@@ -20,7 +21,7 @@ CREATE TABLE articulo (
 );
 
 -- Crear tabla "persona"
-CREATE TABLE persona (
+CREATE TABLE IF NOT EXISTS persona (
   idpersona SERIAL PRIMARY KEY,
   tipo_persona VARCHAR(20),
   nombre VARCHAR(100),
@@ -32,7 +33,7 @@ CREATE TABLE persona (
 );
 
 -- Crear tabla "rol"
-CREATE TABLE rol (
+CREATE TABLE IF NOT EXISTS rol (
   idrol SERIAL PRIMARY KEY,
   nombre VARCHAR(30),
   descripcion VARCHAR(255),
@@ -40,7 +41,7 @@ CREATE TABLE rol (
 );
 
 -- Crear tabla "usuario"
-CREATE TABLE usuario (
+CREATE TABLE IF NOT EXISTS usuario (
   idusuario SERIAL PRIMARY KEY,
   idrol INTEGER REFERENCES rol(idrol),
   nombre VARCHAR(100),
@@ -54,7 +55,7 @@ CREATE TABLE usuario (
 );
 
 -- Crear tabla "venta"
-CREATE TABLE venta (
+CREATE TABLE IF NOT EXISTS venta (
   idventa SERIAL PRIMARY KEY,
   idcliente INTEGER REFERENCES persona(idpersona),
   idusuario INTEGER REFERENCES usuario(idusuario),
@@ -68,7 +69,7 @@ CREATE TABLE venta (
 );
 
 -- Crear tabla "detalle_venta"
-CREATE TABLE detalle_venta (
+CREATE TABLE IF NOT EXISTS detalle_venta (
   iddetalle_venta SERIAL PRIMARY KEY,
   idventa INTEGER REFERENCES venta(idventa),
   idarticulo INTEGER REFERENCES articulo(idarticulo),
@@ -78,7 +79,7 @@ CREATE TABLE detalle_venta (
 );
 
 -- Crear tabla "ingreso"
-CREATE TABLE ingreso (
+CREATE TABLE IF NOT EXISTS ingreso (
   idingreso SERIAL PRIMARY KEY,
   idproveedor INTEGER REFERENCES persona(idpersona),
   idusuario INTEGER REFERENCES usuario(idusuario),
@@ -92,10 +93,12 @@ CREATE TABLE ingreso (
 );
 
 -- Crear tabla "detalle_ingreso"
-CREATE TABLE detalle_ingreso (
+CREATE TABLE IF NOT EXISTS detalle_ingreso (
   iddetalle_ingreso SERIAL PRIMARY KEY,
   idingreso INTEGER REFERENCES ingreso(idingreso),
   idarticulo INTEGER REFERENCES articulo(idarticulo),
   cantidad INTEGER,
   precio DECIMAL(11,2)
 );
+
+'''
