@@ -1,3 +1,9 @@
+# Integrantes
+
+- 24003821 - Diego Bran
+- 14001764 - Jose Calderón
+- 14003689 - Yosef Maldonado
+
 # Video
 
 [Proyecto Final Python]()
