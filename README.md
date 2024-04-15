@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> Este proyecto necesita los archivos de configuración `transactional_config.cfg` y `etl_config.cfg` para funcionar. Sin embargo, no fueron incluidos en este repositorio por motivos de seguridad. Favor de contactar a cualquier integrante del grupo para que pueda proporcionar los archivos de configuración mencionados. 
+
 # Integrantes
 
 - 24003821 - Diego Bran
@@ -6,7 +9,7 @@
 
 # Video
 
-[Proyecto Final Python]()
+[Proyecto Final Python](https://drive.google.com/file/d/1wF_Zwee4-taDZ14SCA_Rns4G6uvATMA6/view?usp=sharing)
 
 # Documentación de Notebooks para Data Warehouse de Modelo de Tienda
 
